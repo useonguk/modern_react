@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from 'react';
 
 function User({ user, onRemove, onToggle }) {
+  useEffect(() => {
+    console.log('user 값 설정');
+    console.log(user);
+    return () => {
+      console.log('user가 바귀기전');
+      console.log(user);
+    };
+  }, [user]);
   return (
     <div>
       <b
         style={{
-          cursor: "pointer",
-          color: user.active ? "green" : "black"
+          cursor: 'pointer',
+          color: user.active ? 'green' : 'black'
         }}
         onClick={() => onToggle(user.id)}
       >
@@ -22,7 +30,7 @@ function User({ user, onRemove, onToggle }) {
 function UserList({ users, onRemove, onToggle }) {
   return (
     <div>
-      {users.map((user) => (
+      {users.map(user => (
         <User
           user={user}
           key={user.id}
