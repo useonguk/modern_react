@@ -14,7 +14,7 @@ function App() {
   });
   const { username, email } = inputs;
   const onChange = useCallback(
-    (e) => {
+    e => {
       const { name, value } = e.target;
       setInputs({
         ...inputs,
